@@ -49,7 +49,7 @@ class AboutStrings < EdgeCase::Koan
     It was the best of times,
     It was the worst of times.
 EOS
-    assert_equal 53, long_string.length
+    assert_equal 61, long_string.length
     assert_equal 2, long_string.lines.count
   end
 
