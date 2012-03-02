@@ -13,12 +13,32 @@
 # and
 #   about_triangle_project_2.rb
 #
+class Side
+  A = 0
+  B = 1
+  C = 2
+end
+
 def triangle(a, b, c)
-  return :equilateral if a == b and b == c
-  if a == b || b == c || c == a
-    return :isosceles
+
+  triangle_sides = [a, b, c].sort
+
+  if triangle_sides[Side::A] + triangle_sides[Side::B] <= triangle_sides[Side::C]
+    raise TriangleError
   else
-    return :scalene
+    triangle_sides.each do |number| 
+      if number <= 0
+        raise TriangleError
+      end 
+    end 
+  end 
+
+  if a == b && b == c
+    :equilateral
+  elsif a == b || b == c || c == a
+    :isosceles
+  else
+    :scalene
   end
 end
 
